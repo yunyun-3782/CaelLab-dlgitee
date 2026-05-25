@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>虚舟实验室资源中心 (下载站)</title>
+
+    <!-- 核心SEO元标签优化 -->
+    <meta name="description" content="虚舟实验室官方资源中心，提供安全审核的工具、软件镜像和开发者资源下载。支持多源高速下载，助力编程学习与项目开发。">
+    <meta name="keywords" content="虚舟实验室,下载站,资源中心,开发者资源,编程学习资源,软件镜像站,Scratch打包器,安全资源平台,青少年编程,虚舟实验室">
+    <meta name="author" content="虚舟实验室(CealLab)">
+    <meta name="robots" content="index, follow">
+    
+    <style>
+        /* 全局样式重置与基础设置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+        }
+
+        /* 背景与主体样式 - 科技风渐变背景 */
+        body {
+            background: linear-gradient(135deg, #0f1923 0%, #1a2938 50%, #2d4059 100%);
+            color: #e6e6e6;
+            min-height: 100vh;
+            padding-bottom: 50px;
+            background-attachment: fixed;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* 科技风背景装饰 */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(57, 162, 219, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(57, 162, 219, 0.08) 0%, transparent 40%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* 头部样式 */
+        header {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 2px solid #39a2db;
+            box-shadow: 0 0 15px rgba(57, 162, 219, 0.3);
+            position: relative;
+            backdrop-filter: blur(5px);
+        }
+
+        header h1 {
+            color: #39a2db;
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(57, 162, 219, 0.5);
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        header h1::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: #39a2db;
+            box-shadow: 0 0 10px rgba(57, 162, 219, 0.8);
+        }
+
+        /* 导航栏样式 */
+        nav {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 12px 0;
+            margin: 20px auto;
+            max-width: 1200px;
+            border-radius: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(57, 162, 219, 0.2);
+        }
+
+        nav a {
+            color: #e6e6e6;
+            text-decoration: none;
+            padding: 8px 18px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav a::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(57, 162, 219, 0.3), transparent);
+            transition: 0.5s;
+        }
+
+        nav a:hover {
+            background: #39a2db;
+            color: #0f1923;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(57, 162, 219, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        nav a:hover::before {
+            left: 100%;
+        }
+
+        /* 容器样式 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 欢迎区域样式 - 首页专用 */
+        .hero-section {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 40px 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid #39a2db;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(57, 162, 219, 0.2);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #39a2db, transparent);
+        }
+
+        .hero-section h2 {
+            color: #39a2db;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            position: relative;
+        }
+
+        .hero-section h2::before {
+            content: "⚡";
+            font-size: 1.8rem;
+        }
+
+        .hero-section p {
+            line-height: 1.8;
+            margin-bottom: 15px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+            font-size: 1.05rem;
+            color: #d0d0d0;
+        }
+
+        .hero-section .highlight {
+            color: #39a2db;
+            font-weight: bold;
+            text-shadow: 0 0 8px rgba(57, 162, 219, 0.5);
+        }
+
+        /* 内容区块样式 */
+        .content-section {
+            background: rgba(0, 0, 0, 0.25);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(57, 162, 219, 0.15);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+
+        .content-section:hover {
+            border-color: rgba(57, 162, 219, 0.3);
+            background: rgba(57, 162, 219, 0.05);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(57, 162, 219, 0.2);
+        }
+
+        .content-section h3 {
+            color: #39a2db;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .content-section h3::before {
+            content: "◆";
+            font-size: 1.2rem;
+        }
+
+        .content-section p {
+            line-height: 1.7;
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+
+        .content-section ul {
+            list-style: none;
+            padding-left: 10px;
+            margin-top: 10px;
+        }
+
+        .content-section li {
+            padding: 8px 0;
+            color: #b0b0b0;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .content-section li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #39a2db;
+        }
+
+        /* 功能卡片网格 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid rgba(57, 162, 219, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 0;
+            background: #39a2db;
+            transition: height 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(57, 162, 219, 0.3);
+            border-color: #39a2db;
+            background: rgba(57, 162, 219, 0.08);
+        }
+
+        .feature-card:hover::before {
+            height: 100%;
+        }
+
+        .feature-card h4 {
+            color: #39a2db;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: #999;
+            line-height: 1.5;
+        }
+
+        /* 页脚样式 */
+        footer {
+            background: rgba(0, 0, 0, 0.6);
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px;
+            color: #999;
+            font-size: 0.9rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            border-top: 1px solid rgba(57, 162, 219, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            nav {
+                gap: 10px;
+            }
+
+            nav a {
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
+
+            .hero-section {
+                padding: 30px 20px;
+            }
+
+            .hero-section h2 {
+                font-size: 1.6rem;
+            }
+
+            .hero-section p {
+                font-size: 0.95rem;
+            }
+
+            .content-section {
+                padding: 20px;
+            }
+
+            .content-section h3 {
+                font-size: 1.3rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5rem;
+                letter-spacing: 1px;
+            }
+
+            .hero-section h2 {
+                font-size: 1.4rem;
+            }
+
+            .hero-section {
+                padding: 25px 15px;
+            }
+
+            .content-section {
+                padding: 15px;
+            }
+
+            .content-section h3 {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* 动画效果 */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(57, 162, 219, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(57, 162, 219, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(57, 162, 219, 0); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* 内容区块入场动画 */
+        .content-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .content-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 加载动画 */
+        .loading {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border: 2px solid rgba(57, 162, 219, 0.3);
+            border-top: 2px solid #39a2db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>虚舟实验室资源中心</h1>
+    </header>
+    <nav>
+        <a href="https://www.caellab.com/" class="pulse">返回主站</a>
+        <a href="/" class="pulse">主页</a>
+        <a href="/pack/" class="pulse">打包</a>
+        <a href="/games/" class="pulse">游戏</a>
+    </nav>
+    <div class="container">
+        <section class="hero-section">
+            <h2>欢迎来到虚舟实验室资源中心</h2>
+            <p>我们致力于为开发者、研究人员和学习者提供<span class="highlight">高质量</span>的工具与资源。</p>
+            <p>所有资源均经过严格审核，确保安全可靠。</p>
+            <p style="margin-top: 20px; color: #ff6b6b; font-weight: bold;">⚠️ 请仅用于学习与研究目的。</p>
+        </section>
+
+        <section class="content-section" id="about">
+            <h3>关于我们</h3>
+            <p>虚舟实验室是一个专注于技术研究与贡献的团队。我们收集、整理并审核各类实用工具，帮助用户快速找到所需的资源。</p>
+            <p>我们的使命是：让技术资源更透明、更易获取，同时尊重原作者的权益。</p>
+        </section>
+
+        <section class="content-section" id="features">
+            <h3>核心特点</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>精选资源</h4>
+                    <p>所有资源都经过人工审核，确保无毒、无害、无捆绑。</p>
+                </div>
+                <div class="feature-card">
+                    <h4>多源下载</h4>
+                    <p>提供多个下载源，包括自建节点和第三方镜像，确保下载稳定性。</p>
+                </div>
+                <div class="feature-card">
+                    <h4>持续更新</h4>
+                    <p>定期更新资源库，确保您获取到最新版本的工具。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="guidelines">
+            <h3>使用指南</h3>
+            <ul>
+                <li>浏览资源列表，找到您需要的软件</li>
+                <li>点击软件名称，查看可用的下载源</li>
+                <li>选择合适的下载源进行下载</li>
+                <li>如有问题，可通过主站联系我们</li>
+            </ul>
+        </section>
+
+        <section class="content-section" id="disclaimer">
+            <h3>免责声明</h3>
+            <p>本平台提供的所有资源均来自网络或原作者授权，仅供学习和研究使用。</p>
+            <p>严禁将这些资源用于任何商业用途或非法活动。</p>
+            <p style="color: #ff6b6b; margin-top: 10px;">使用本平台即表示您已阅读并同意上述条款。</p>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2025-2099 虚舟实验室(CaelLab). All rights reserved.</p>
+    </footer>
+
+    <script>
+        // 页面滚动动画效果
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // 观察所有内容区块
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // 导航链接平滑滚动
+            document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>游戏下载 - 虚舟实验室资源中心</title>
+    <link rel="canonical" href="https://dl.caellab.com/games/">
+    <meta name="description" content="虚舟实验室资源中心提供虚舟实验室开发的游戏，安全可靠，专为技术爱好者打造。">
+    <meta name="keywords" content="虚舟实验室,资源中心,下载站,游戏,areyouok">
+
+    <style>
+        /* 全局样式重置与基础设置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+        }
+
+        /* 背景与主体样式 - 科技风渐变背景 */
+        body {
+            background: linear-gradient(135deg, #0f1923 0%, #1a2938 50%, #2d4059 100%);
+            color: #e6e6e6;
+            min-height: 100vh;
+            padding-bottom: 50px;
+            background-attachment: fixed;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* 科技风背景装饰 */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(57, 162, 219, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(57, 162, 219, 0.08) 0%, transparent 40%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* 头部样式 */
+        header {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 2px solid #39a2db;
+            box-shadow: 0 0 15px rgba(57, 162, 219, 0.3);
+            position: relative;
+            backdrop-filter: blur(5px);
+        }
+
+        header h1 {
+            color: #39a2db;
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(57, 162, 219, 0.5);
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        header h1::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: #39a2db;
+            box-shadow: 0 0 10px rgba(57, 162, 219, 0.8);
+        }
+
+        /* 导航栏样式 */
+        nav {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 12px 0;
+            margin: 20px auto;
+            max-width: 1200px;
+            border-radius: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(57, 162, 219, 0.2);
+        }
+
+        nav a {
+            color: #e6e6e6;
+            text-decoration: none;
+            padding: 8px 18px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav a::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(57, 162, 219, 0.3), transparent);
+            transition: 0.5s;
+        }
+
+        nav a:hover {
+            background: #39a2db;
+            color: #0f1923;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(57, 162, 219, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        nav a:hover::before {
+            left: 100%;
+        }
+
+        /* 容器样式 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 欢迎区域样式 */
+        .welcome {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid #39a2db;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(57, 162, 219, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .welcome::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #39a2db, transparent);
+        }
+
+        .welcome h2 {
+            color: #39a2db;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .welcome h2::before {
+            content: "⚡";
+            font-size: 1.5rem;
+        }
+
+        .welcome p {
+            line-height: 1.6;
+            margin-bottom: 10px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .welcome p:last-child {
+            color: #ff6b6b;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .welcome p:last-child::before {
+            content: "⚠️";
+        }
+
+        /* 资源列表区域样式 */
+        #resources-list {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(57, 162, 219, 0.2);
+        }
+
+        #resources-list h2 {
+            color: #39a2db;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        #resources-list h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 2px;
+            background: #39a2db;
+            box-shadow: 0 0 8px rgba(57, 162, 219, 0.6);
+        }
+
+        #resources-list ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        #resources-list li {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(57, 162, 219, 0.2);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        #resources-list li::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 0;
+            background: #39a2db;
+            transition: height 0.3s ease;
+        }
+
+        #resources-list li:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(57, 162, 219, 0.3);
+            border-color: #39a2db;
+            background: rgba(57, 162, 219, 0.08);
+        }
+
+        #resources-list li:hover::before {
+            height: 100%;
+        }
+
+        /* 软件链接样式 */
+        .software-link {
+            color: #e6e6e6;
+            text-decoration: none;
+            display: block;
+            padding: 8px 0;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            font-weight: 600;
+            font-size: 1.1rem;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .software-link::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #39a2db;
+            transition: transform 0.3s ease;
+        }
+
+        .software-link:hover {
+            color: #39a2db;
+            padding-left: 25px;
+        }
+
+        .software-link:hover::before {
+            transform: translateX(5px);
+        }
+
+        /* 软件简介样式 */
+        .software-desc {
+            font-size: 0.9rem;
+            color: #999;
+            margin-top: 10px;
+            padding-left: 20px;
+            line-height: 1.5;
+            border-left: 2px solid rgba(57, 162, 219, 0.3);
+        }
+
+        /* 页脚样式 */
+        footer {
+            background: rgba(0, 0, 0, 0.6);
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px;
+            color: #999;
+            font-size: 0.9rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            border-top: 1px solid rgba(57, 162, 219, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        /* 响应式设计 - 移动端优化 */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            nav {
+                gap: 10px;
+            }
+
+            nav a {
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
+
+            .welcome {
+                padding: 20px;
+            }
+
+            .welcome h2 {
+                font-size: 1.5rem;
+            }
+
+            #resources-list {
+                padding: 20px;
+            }
+
+            #resources-list ul {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5rem;
+                letter-spacing: 1px;
+            }
+
+            .welcome h2 {
+                font-size: 1.3rem;
+            }
+
+            .welcome p {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* 卡片悬停动画 */
+        @keyframes hoverPulse {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(-3px); }
+        }
+
+        #resources-list li:hover {
+            animation: hoverPulse 0.5s;
+        }
+
+        /* 卡片内容点击区域 */
+        .card-content {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>虚舟实验室资源中心</h1>
+    </header>
+    <nav>
+        <a href="/" class="pulse">主页</a>
+
+    </nav>
+    <div class="container">
+        <section id="online-resources" class="welcome">
+            <h2>游戏下载</h2>
+            <p>这里提供各种由虚舟实验室开发的游戏的资源。</p>
+            <p style="color: #ff6b6b;">请注意，这些文件仅供学习和研究使用，经过虚舟实验室同意后才可修改，严禁商用。</p>
+        </section>
+        <section id="resources-list">
+            <h2>资源列表</h2>
+            <ul>
+                <li onclick="window.location.href='/games/areyouok/'">
+                    <div class="card-content">
+                        <div class="software-link">Are You OK？</div>
+                        <div class="software-desc">Are You OK？是CaelLabGameTS开发的一款平台跳跃游戏，充满挑战与乐趣。</div>
+                    </div>
+                </li>
+                <!-- 可以继续添加更多资源卡片 -->
+            </ul>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2025-2099 虚舟实验室(CaelLab). All rights reserved.</p>
+    </footer>
+
+    <script>
+        // 页面加载动画效果 - 卡片淡入
+        window.addEventListener('DOMContentLoaded', () => {
+            const items = document.querySelectorAll('#resources-list li');
+            items.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+        });
+    </script>
+</body>
+</html>

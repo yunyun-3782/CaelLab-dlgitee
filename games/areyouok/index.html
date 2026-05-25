@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AreYouOK - 游戏下载 - 虚舟实验室资源中心</title>
+    <!-- 添加SEO描述和关键词 -->
+    <link rel="canonical" href="https://dl.caellab.com/games/areyouok/">
+    <meta name="description" content="虚舟实验室资源中心提供打造的areyouok游戏，不同版本均可在此找到哦。">
+    <meta name="keywords" content="虚舟实验室,资源中心,下载站,游戏下载,areyouok,windows">
+
+    <style>
+        /* 全局样式重置与基础设置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+        }
+
+        /* 背景与主体样式 - 科技风渐变背景 */
+        body {
+            background: linear-gradient(135deg, #0f1923 0%, #1a2938 50%, #2d4059 100%);
+            color: #e6e6e6;
+            min-height: 100vh;
+            padding-bottom: 50px;
+            background-attachment: fixed;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* 科技风背景装饰 */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(57, 162, 219, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(57, 162, 219, 0.08) 0%, transparent 40%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* 头部样式 */
+        header {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 2px solid #39a2db;
+            box-shadow: 0 0 15px rgba(57, 162, 219, 0.3);
+            position: relative;
+            backdrop-filter: blur(5px);
+        }
+
+        header h1 {
+            color: #39a2db;
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(57, 162, 219, 0.5);
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        header h1::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: #39a2db;
+            box-shadow: 0 0 10px rgba(57, 162, 219, 0.8);
+        }
+
+        /* 导航栏样式 */
+        nav {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 12px 0;
+            margin: 20px auto;
+            max-width: 1200px;
+            border-radius: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(57, 162, 219, 0.2);
+        }
+
+        nav a {
+            color: #e6e6e6;
+            text-decoration: none;
+            padding: 8px 18px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav a::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(57, 162, 219, 0.3), transparent);
+            transition: 0.5s;
+        }
+
+        nav a:hover {
+            background: #39a2db;
+            color: #0f1923;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(57, 162, 219, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        nav a:hover::before {
+            left: 100%;
+        }
+
+        /* 容器样式 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 欢迎区域样式 */
+        .welcome {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid #39a2db;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(57, 162, 219, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .welcome::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #39a2db, transparent);
+        }
+
+        .welcome h2 {
+            color: #39a2db;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .welcome h2::before {
+            content: "⚡";
+            font-size: 1.5rem;
+        }
+
+        .welcome p {
+            line-height: 1.6;
+            margin-bottom: 10px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .welcome p:last-child {
+            color: #ff6b6b;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .welcome p:last-child::before {
+            content: "⚠️";
+        }
+
+        /* 资源列表区域样式 */
+        #resources-list {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(57, 162, 219, 0.2);
+        }
+
+        #resources-list h2 {
+            color: #39a2db;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        #resources-list h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 2px;
+            background: #39a2db;
+            box-shadow: 0 0 8px rgba(57, 162, 219, 0.6);
+        }
+
+        #resources-list ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        #resources-list li {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(57, 162, 219, 0.2);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer; /* 整个卡片可点击 */
+        }
+
+        #resources-list li::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 0;
+            background: #39a2db;
+            transition: height 0.3s ease;
+        }
+
+        #resources-list li:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(57, 162, 219, 0.3);
+            border-color: #39a2db;
+            background: rgba(57, 162, 219, 0.08);
+        }
+
+        #resources-list li:hover::before {
+            height: 100%;
+        }
+
+        /* 软件链接样式 */
+        .software-link {
+            color: #e6e6e6;
+            text-decoration: none;
+            display: block;
+            padding: 8px 0;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            font-weight: 600;
+            font-size: 1.1rem;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .software-link::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #39a2db;
+            transition: transform 0.3s ease;
+        }
+
+        .software-link:hover {
+            color: #39a2db;
+            padding-left: 25px;
+        }
+
+        .software-link:hover::before {
+            transform: translateX(5px);
+        }
+
+        /* 软件简介样式 */
+        .software-desc {
+            font-size: 0.9rem;
+            color: #999;
+            margin-top: 10px;
+            padding-left: 20px;
+            line-height: 1.5;
+            border-left: 2px solid rgba(57, 162, 219, 0.3);
+        }
+
+        /* 弹窗遮罩层 */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            backdrop-filter: blur(5px);
+            padding: 10px;
+        }
+
+        /* 弹窗容器 */
+        .modal-container {
+            background: #1a2938;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            padding: 20px;
+            border: 2px solid #39a2db;
+            box-shadow: 0 0 25px rgba(57, 162, 219, 0.6);
+            position: relative;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .modal-overlay.active .modal-container {
+            transform: scale(1);
+        }
+
+        /* 弹窗标题 */
+        .modal-title {
+            color: #39a2db;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+            word-break: break-word;
+        }
+
+        .modal-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background: #39a2db;
+            box-shadow: 0 0 8px rgba(57, 162, 219, 0.6);
+        }
+
+        /* 资源列表样式 */
+        .source-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .source-list li {
+            margin: 12px 0;
+            padding: 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(57, 162, 219, 0.1);
+            overflow: hidden;
+        }
+
+        .source-list li:hover {
+            background: rgba(57, 162, 219, 0.15);
+            transform: translateX(5px);
+            border-color: rgba(57, 162, 219, 0.4);
+        }
+
+        .source-list a {
+            color: #e6e6e6;
+            text-decoration: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+            width: 100%;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            min-height: 44px;
+        }
+
+        .source-list a:hover {
+            color: #39a2db;
+            background: rgba(57, 162, 219, 0.1);
+        }
+
+        .source-name {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .source-name::before {
+            content: "";
+            font-size: 0.8rem;
+        }
+
+        .source-tip {
+            font-size: 0.75rem;
+            color: #ff6b6b;
+            background: rgba(255, 107, 107, 0.1);
+            padding: 3px 8px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            white-space: nowrap;
+            flex-shrink: 0;
+            margin-left: 8px;
+        }
+
+        /* 关闭按钮 */
+        .close-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: #39a2db;
+            color: #0f1923;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            min-height: 44px;
+        }
+
+        .close-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.5s;
+        }
+
+        .close-btn:hover {
+            background: #287ca8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(57, 162, 219, 0.4);
+        }
+
+        .close-btn:hover::before {
+            left: 100%;
+        }
+
+        /* 页脚样式 */
+        footer {
+            background: rgba(0, 0, 0, 0.6);
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px;
+            color: #999;
+            font-size: 0.9rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            border-top: 1px solid rgba(57, 162, 219, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        /* 无可用源提示 */
+        .no-source {
+            text-align: center;
+            padding: 20px;
+            color: #ff6b6b;
+            font-weight: bold;
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 8px;
+            border: 1px dashed rgba(255, 107, 107, 0.4);
+        }
+
+        /* 响应式设计 - 移动端优化 */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            nav {
+                gap: 10px;
+            }
+
+            nav a {
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
+
+            .welcome {
+                padding: 20px;
+            }
+
+            .welcome h2 {
+                font-size: 1.5rem;
+            }
+
+            #resources-list {
+                padding: 20px;
+            }
+
+            #resources-list ul {
+                grid-template-columns: 1fr;
+            }
+
+            /* 移动端弹窗优化 */
+            .modal-overlay {
+                padding: 5px;
+            }
+
+            .modal-container {
+                padding: 15px;
+                max-height: 92vh;
+                width: 95%;
+            }
+
+            .modal-title {
+                font-size: 1.3rem;
+            }
+
+            /* 移动端源列表 - 垂直堆叠，允许换行 */
+            .source-list a {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+                white-space: normal;
+                padding: 15px;
+            }
+
+            .source-name {
+                width: 100%;
+                overflow: visible;
+                text-overflow: clip;
+            }
+
+            .source-tip {
+                align-self: flex-start;
+                margin-left: 0;
+            }
+
+            /* 按钮移动端优化 */
+            .close-btn {
+                padding: 14px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5rem;
+                letter-spacing: 1px;
+            }
+
+            .welcome h2 {
+                font-size: 1.3rem;
+            }
+
+            .welcome p {
+                font-size: 0.9rem;
+            }
+
+            .modal-title {
+                font-size: 1.2rem;
+            }
+
+            .source-list a {
+                padding: 12px;
+            }
+        }
+
+        /* 动画效果 */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(57, 162, 219, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(57, 162, 219, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(57, 162, 219, 0); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* 软件项悬停动画 */
+        #resources-list li:hover {
+            animation: hoverPulse 0.5s;
+        }
+
+        @keyframes hoverPulse {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(-3px); }
+        }
+
+        /* 加载动画 */
+        .loading {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border: 2px solid rgba(57, 162, 219, 0.3);
+            border-top: 2px solid #39a2db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* 防止 iOS 滚动穿透 */
+        body.modal-open {
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 卡片内容点击区域 */
+        .card-content {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>虚舟实验室资源中心</h1>
+    </header>
+    <nav>
+        <a href="/games/" class="pulse">返回上一级</a>
+    </nav>
+    <div class="container">
+        <section id="online-resources" class="welcome">
+            <h2>Are You OK？</h2>
+        </section>
+        <section id="resources-list">
+            <h2>请选择版本</h2>
+            <ul>
+                <li onclick="openModal('1.1.1')">
+                    <div class="card-content">
+                        <div class="software-link">1.1.1</div>
+                        <div class="software-desc">芜湖是新的版本号命名规则！<br>修复了一些bugs</div>
+                    </div>
+                </li>
+                <li onclick="openModal('1.0.1.0')">
+                    <div class="card-content">
+                        <div class="software-link">1.0.1.0</div>
+                        <div class="software-desc">新增了超级困难的world6！<br>新增了存档功能（自动保存！）。</div>
+                    </div>
+                </li>
+                <li onclick="openModal('1.0.0.0')">
+                    <div class="card-content">
+                        <div class="software-link">1.0.0.0</div>
+                        <div class="software-desc">更新并吃了一个奶酪块，终于变成了正式版啦！<br>更新若干。</div>
+                    </div>
+                </li>
+                <li onclick="openModal('0.1.0.4')">
+                    <div class="card-content">
+                        <div class="software-link">0.1.0.5</div>
+                        <div class="software-desc">增加彩带，修复了作弊bug。</div>
+                    </div>
+                </li>
+                <li onclick="openModal('0.1.0.4')">
+                    <div class="card-content">
+                        <div class="software-link">0.1.0.4</div>
+                        <div class="software-desc">欢迎体验全新版本</div>
+                    </div>
+                </li>
+                <!-- 可以继续添加更多资源卡片 -->
+            </ul>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2025-Now 虚舟实验室(CaelLab). All rights reserved.</p>
+    </footer>
+
+    <!-- 资源选择弹窗 -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal-container">
+            <h3 class="modal-title" id="modalTitle">选择下载源</h3>
+            <ul class="source-list" id="sourceList">
+                <!-- 内容由JS动态填充 -->
+            </ul>
+            <button class="close-btn" onclick="closeModal()">关闭</button>
+        </div>
+    </div>
+
+    <script>
+        // 定义 软件名称 -> 各源链接 的映射表
+        const softwareSources = {
+"1.1.1": {
+"详情页":"https://gamets.caellab.com/areyouok/",
+"虚舟实验室NAS": "https://ug.link/yunyun3782/filemgr/share-download/?id=1b784895a0034802ae97f0cf22c5ac6d",
+"百度网盘": "https://pan.baidu.com/s/1W73IDhqrlBVPQTV7sxUmbw?pwd=0705",
+},
+
+            "1.0.1.0": {
+                "虚舟实验室NAS": "https://ug.link/yunyun3782/filemgr/share-download/?id=58db8c1cdf4d411a99dfeff4a5807330",
+                "百度网盘": "https://pan.baidu.com/s/1u3IbNSGh0WUbKwCAUWf44g?pwd=0705",
+            "1.0.1.0": {
+                "详情页":"https://gamets.caellab.com/areyouok/",
+                "虚舟实验室NAS": "https://ug.link/yunyun3782/filemgr/share-download/?id=58db8c1cdf4d411a99dfeff4a5807330",
+                "百度网盘": "https://pan.baidu.com/s/1rNbSd5f6x-Xs6ZMaEQVPIg?pwd=0705",
+            },},
+            
+            
+            "1.0.0.0": {
+                "详情页":"https://gamets.caellab.com/areyouok/history/1.0.0.0",
+                "虚舟实验室NAS": "https://ug.link/yunyun3782/filemgr/share-download/?id=2c931fed92b0452fbf929b86a169a21a",
+                "百度网盘": "https://pan.baidu.com/s/1W73IDhqrlBVPQTV7sxUmbw?pwd=0705"
+            },
+            "0.1.0.4": {
+                "详情页":"https://www.caellab.com/2026/areyouok/history/0.1.0.4/",
+                "源服务器":"0",
+                "虚舟实验室NAS": "https://ug.link/yunyun3782/filemgr/share-download/?id=d1145cf1d95b4598a47d6109ae59f869",
+                "GitHub": "0",
+                "Gitee": "0",
+                "123云盘": "https://www.123865.com/s/T4nijv-UVjAH",
+                "蓝奏云": "0",
+                "百度网盘":"https://pan.baidu.com/e/1Lqm5sDrNTbIW1bYiEe4W7w?pwd=0705"
+            },
+            "0.1.0.5": {
+                "详情页":"https://www.caellab.com/2026/areyouok/",
+                "源服务器":"0",
+                "虚舟实验室NAS": "https://ug.link/yunyun3782/filemgr/share-download/?id=a876beb2c44948ffae4218d4e14489e0",
+                "GitHub": "0",
+                "Gitee": "0",
+                "123云盘": "https://www.123865.com/s/T4nijv-a3T9H",
+                "蓝奏云": "0",
+                "百度网盘":"https://pan.baidu.com/e/1rOf4lrl6Y5zEnNYNVRgydw?pwd=0705"
+            }
+        };
+
+        // 源对应的提示文本
+        const sourceTips = {
+            "详情页":"我要去看看！",
+            "源服务器":"₍₍Ϡ(੭•̀ω•́)੭✧不需要跳转页面直接下载",
+            "虚舟实验室NAS": "P2P节点",
+            "GitHub": "国内可能不稳定，备用",
+            "Gitee": "国内镜像稳定",
+            "123云盘": "小流量超高速稳定",
+            "蓝奏云": "纯净多线路自选，提取码0705",
+            "百度网盘":"稳定多年不掉线，提取码0705"
+        };
+
+        // 打开弹窗函数
+        function openModal(softwareName) {
+            const modalTitle = document.getElementById('modalTitle');
+            const sourceList = document.getElementById('sourceList');
+            const modalOverlay = document.getElementById('modal');
+
+            modalTitle.innerText = `Are You OK？ ${softwareName}`;
+
+            // 清空原有列表
+            sourceList.innerHTML = '';
+
+            // 获取当前软件的所有源链接
+            const sources = softwareSources[softwareName];
+            let hasAvailableSource = false;
+
+            // 添加加载动画
+            const loadingDiv = document.createElement('div');
+            loadingDiv.style.textAlign = 'center';
+            loadingDiv.style.padding = '15px';
+            loadingDiv.innerHTML = '正在获取下载源<span class="loading"></span>';
+            sourceList.appendChild(loadingDiv);
+
+            // 模拟加载延迟 - 已加快到300ms
+            setTimeout(() => {
+                sourceList.innerHTML = '';
+
+                for (const [sourceName, url] of Object.entries(sources)) {
+                    // 过滤掉链接为0的源
+                    if (url === "0") continue;
+
+                    hasAvailableSource = true;
+                    const li = document.createElement('li');
+                    // 只有当提示文本不为空时才显示
+                    const tipText = sourceTips[sourceName] ? `<span class="source-tip">${sourceTips[sourceName]}</span>` : '';
+                    // 关键修改：为弹窗中的外链添加rel="nofollow"
+                    li.innerHTML = `<a href="${url}" target="_blank" rel="nofollow"><span class="source-name">${sourceName}</span> ${tipText}</a>`;
+                    sourceList.appendChild(li);
+                }
+
+                // 如果没有可用源，显示提示
+                if (!hasAvailableSource) {
+                    const li = document.createElement('div');
+                    li.className = 'no-source';
+                    li.innerHTML = '暂无可用下载源<br>请稍后再试';
+                    sourceList.appendChild(li);
+                }
+            }, 300);  // 加载速度加快到300ms
+
+            modalOverlay.style.display = 'flex';
+            document.body.classList.add('modal-open');
+            setTimeout(() => {
+                modalOverlay.classList.add('active');
+            }, 10);
+        }
+
+        // 关闭弹窗函数
+        function closeModal() {
+            const modalOverlay = document.getElementById('modal');
+            modalOverlay.classList.remove('active');
+            document.body.classList.remove('modal-open');
+            setTimeout(() => {
+                modalOverlay.style.display = 'none';
+            }, 300);
+        }
+
+        // 点击遮罩层关闭弹窗
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // 按ESC键关闭弹窗
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // 页面加载动画效果
+        window.addEventListener('DOMContentLoaded', () => {
+            const items = document.querySelectorAll('#resources-list li');
+            items.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+            
+            // 检查URL参数，如果包含资源名称，自动打开对应模态框
+            checkUrlForAutoOpen();
+        });
+        
+        // 检查URL参数，自动打开对应资源
+        function checkUrlForAutoOpen() {
+            const url = window.location.href;
+            const queryString = url.split('?')[1];
+            
+            if (queryString) {
+                // 去除可能的#符号
+                const cleanParam = queryString.split('#')[0];
+                
+                // 检查是否存在这个资源
+                if (softwareSources[cleanParam]) {
+                    // 延迟一点打开，确保页面加载完成
+                    setTimeout(() => {
+                        openModal(cleanParam);
+                    }, 500);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
